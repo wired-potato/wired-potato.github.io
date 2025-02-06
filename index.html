@@ -4,10 +4,10 @@
     <title>wired potato games</title>
     <style>
       
-  .potato-button {
+    .potato-button {
       background-color: transparent;
       border: none;
-      font-size: 50px;
+      font-size: 80px; /* Make potato bigger */
       cursor: pointer;
       transition: transform 0.1s ease-in-out;
       background: none;
@@ -15,23 +15,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transform: rotate(90deg); /* Rotate potato sideways */
     }
 
     .potato-button span {
       position: absolute;
-      font-size: 20px;
+      font-size: 24px;
       color: black;
       font-weight: bold;
+      transform: rotate(-90deg); /* Keep text readable */
     }
 
     .potato-button:hover {
-      transform: scale(1.1);
+      transform: rotate(90deg) scale(1.1);
     }
 
     .potato-button:active {
-      transform: scale(0.9);
+      transform: rotate(90deg) scale(0.9);
     }
-      
  body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #660000, #ed3419 );
