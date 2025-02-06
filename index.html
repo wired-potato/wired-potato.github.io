@@ -1,31 +1,36 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>WIRED POTATO</title>
+    <title>wired potato games</title>
     <style>
       
-.potato-button {
-      background-color: #d4a76a; /* Potato skin color */
+  .potato-button {
+      background-color: transparent;
       border: none;
-      padding: 15px 35px;
-      font-size: 18px;
-      border-radius: 55% 45% 60% 40% / 50% 60% 40% 55%; /* More potato-like shape */
-      box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.2),
-                  inset 3px 3px 5px rgba(255, 255, 255, 0.2),
-                  8px 8px 15px rgba(0, 0, 0, 0.3);
+      font-size: 50px;
       cursor: pointer;
       transition: transform 0.1s ease-in-out;
+      background: none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .potato-button span {
+      position: absolute;
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
     }
 
     .potato-button:hover {
-      background-color: #c4945a;
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .potato-button:active {
-      transform: scale(0.95);
+      transform: scale(0.9);
     }
-
       
  body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -52,6 +57,9 @@
   </head>
   <body>
 <h1> e </h1>
-    <button class="potato-button">Click Me</button>
+     <button class="potato-button">
+    🥔
+    <span>Click Me</span>
+  </button>
 </body>
 </html>
