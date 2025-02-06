@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
       
     .potato-button {
@@ -56,11 +57,20 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       color: black;
     }
-
+      
+  #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place behind all content */
+    }
       
     </style>
   </head>
   <body>
+      <div id="particles-js"></div>
     <img src="potato.png" alt="wired potato logo">
 <h1> WIRED POTATO GAMES </h1>
      <button class="potato-button">
@@ -83,4 +93,34 @@
     <span>IDLE GAMES</span>
   </button>
 </body>
+  <script>
+particlesJS('particles-js', {
+      particles: {
+        number: { value: 50 },
+        color: { value: "#8B4513" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 4 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#000000",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 3,
+        },
+      },
+      interactivity: {
+        detect_on: "window",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: false, mode: "push" },
+        },
+      },
+      retina_detect: true,
+    });
+</script>
 </html>
