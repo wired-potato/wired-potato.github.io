@@ -81,19 +81,20 @@ body {
     }
       
       
-       .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55px;
-    backdrop-filter: blur(10px);
-    background: rgba(34, 34, 34, 0.5);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 100;
-  }
+      .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 55px;
+        backdrop-filter: blur(10px);
+        background: rgba(34, 34, 34, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* This will align the content to the left and right (thanks chatgpt) */
+        padding: 0 20px;
+        z-index: 100;
+      }
 
   .top-bar img {
     height: 40px;
