@@ -51,14 +51,36 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       color: black;
     }
-    
+
+        .wires {
+      position: absolute;
+      width: 10px;
+      height: 50px;
+      background-color: gray;
+      border-radius: 5px;
+    }
+
+    .wire-left {
+      top: -20px;
+      left: -15px;
+      transform: rotate(-30deg);
+    }
+
+    .wire-right {
+      top: -20px;
+      right: -15px;
+      transform: rotate(30deg);
+    }
     </style>
   </head>
   <body>
-<h1> e </h1>
+<h1> test </h1>
      <button class="potato-button">
     🥔
     <span>Click Me</span>
+    <div class="wires wire-left"></div>
+    <div class="wires wire-right"></div>
+  </button>
   </button>
 </body>
 </html>
