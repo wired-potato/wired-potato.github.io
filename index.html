@@ -7,7 +7,7 @@
     .potato-button {
       background-color: transparent;
       border: none;
-      font-size: 80px; /* Make potato bigger */
+      font-size: 100px; /* Make potato bigger */
       cursor: pointer;
       transition: transform 0.1s ease-in-out;
       background: none;
@@ -15,7 +15,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: rotate(90deg); /* Rotate potato sideways */
     }
 
     .potato-button span {
@@ -23,15 +22,14 @@
       font-size: 24px;
       color: black;
       font-weight: bold;
-      transform: rotate(-90deg); /* Keep text readable */
     }
 
     .potato-button:hover {
-      transform: rotate(90deg) scale(1.1);
+      transform: scale(1.1);
     }
 
     .potato-button:active {
-      transform: rotate(90deg) scale(0.9);
+      transform: scale(0.9);
     }
  body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
