@@ -76,16 +76,49 @@ body {
       z-index: -1; /* Place behind all content */
     }
       
+      
+       .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .top-bar img {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .top-bar span {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    color: white;
+  }
     </style>
   </head>
   <body>
+    
+    <div class="top-bar">
+  <img src="potato.png" alt="Potato Icon">
+  <span>Wired Potato</span>
+</div>
+    
+    
       <div id="particles-js"></div>
     <img src="potato.png" alt="wired potato logo">
 <h1> WIRED POTATO GAMES </h1>
      <button class="potato-button">
     🥔
     <span>SHOOTING GAMES</span>
-    
+    </button> 
 
   <button class="potato-button">
     🥔
@@ -138,3 +171,4 @@ particlesJS('particles-js', {
     });
 </script>
 </html>
+ <!--does this look good?-->
