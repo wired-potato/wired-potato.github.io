@@ -6,20 +6,32 @@
   <title>Time Shooter on Wired Potato</title>
   <style>
     
-  body, html {
+* {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* Prevents scrolling */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align content to the center of the viewport */
+  height: 100vh;
+  background-color: #000; /* Optional: dark background */
+  overflow: hidden; /* Prevent scrollbars */
 }
 
 .game-container {
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
+}
+
+.game-iframe-container {
+  width: 100%;
+  height: 100%;
 }
 
 .game-iframe {
@@ -29,13 +41,15 @@
 }
 
 
+
+
+
    
   </style>
 </head>
 <body id="page-top">
   <div class="game-container">
     <div class="game-iframe-container">
-      <button id="fullscreen-btn" class="btn btn-primary">Fullscreen</button>
       <iframe class="game-iframe" id="game-area" src="https://web.haruka.gay/uv/service/hvtrs8%2F-gcmgs%2Ccpaxyeaoeq.aoo%2Fgn%5DUQ%2Fvioe%2Fsjomtgr-ildgx%2Chvmn" scrolling="none"></iframe>
     </div>
   </div>
