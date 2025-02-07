@@ -18,6 +18,7 @@ https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
       a {
   display: contents;
 }
+      
     .potato-button {
       background-color: transparent;
       border: none;
@@ -79,53 +80,85 @@ body {
       z-index: -1; /* Place behind all content */
     }
       
-      
-       .top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55px;
-    backdrop-filter: blur(10px);
-    background: rgba(34, 34, 34, 0.5);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 100;
-  }
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  backdrop-filter: blur(10px);
+  background: rgba(34, 34, 34, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Separate left and right sections */
+  padding: 0 20px;
+  z-index: 100;
+  box-sizing: border-box;
+}
 
-  .top-bar img {
-    height: 40px;
-    margin-right: 10px;
-  }
+.left-section {
+  display: flex;
+  align-items: center;
+}
 
-  .top-bar span {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 24px;
-    color: white;
-  }
+.left-section img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.left-section a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.right-section {
+  display: flex;
+  gap: 15px; /* Space between links */
+}
+
+.right-section a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.right-section a:hover {
+  opacity: 0.8;
+}
+
     </style>
   </head>
   <body>
     
-    <div class="top-bar">
-  <img src="potato.png" alt="Potato Icon">
-  <span>Wired Potato</span>
+<div class="top-bar">
+  <div class="left-section">
+    <img src="potato.png" alt="Potato Icon">
+    <a href="index.html" class="span-link"><span>Wired Potato</span></a>
+  </div>
+  <div class="right-section">
+    <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors &nbsp;&nbsp;&nbsp;</a>
+    <a href="thanks.md" target="_blank" class="credits-link">Credits</a>
+  </div>
 </div>
+
+
     
     
       <div id="particles-js"></div>
     <img src="potato.png" alt="wired potato logo">
 <h1> WIRED POTATO GAMES </h1>
-  <a href="g/basketrandom.html">
+    <a href="g/basketrandom.html">
   <button class="potato-button">
     🥔
     <span>Basket random</span>
   </button>
 </a>
-
+  
  
-
+      
 </body>
   <script>
 particlesJS('particles-js', {
