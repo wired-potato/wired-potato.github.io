@@ -108,12 +108,17 @@ body {
     color: white;
   }
 
-      .top-bar a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        white-space: nowrap;
-      }
+    .top-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 15px; /* Add some space between links */
+}
+
+.top-bar .credits-link {
+  font-size: 16px;
+  text-decoration: underline;
+}
 
       .top-bar .fix-errors {
         font-size: 16px;
@@ -123,13 +128,14 @@ body {
   </head>
   <body>
     
-    <div class="top-bar">
-      <div>
-        <img src="potato.png" alt="Potato Icon">
-        <span>Wired Potato</span>
-      </div>
-      <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors</a>
-    </div>
+  <div class="top-bar">
+  <div>
+    <img src="potato.png" alt="Potato Icon">
+    <span>Wired Potato</span>
+  </div>
+  <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors</a>
+  <a href="CREDITS.md" target="_blank" class="credits-link">Credits</a>
+</div>
     
     
       <div id="particles-js"></div>
