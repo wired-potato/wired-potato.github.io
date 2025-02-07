@@ -81,7 +81,7 @@ body {
     }
       
       
-      .top-bar {
+     .top-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -90,12 +90,22 @@ body {
   backdrop-filter: blur(10px);
   background: rgba(34, 34, 34, 0.5);
   display: flex;
-  align-items: center;
-  justify-content: space-between; /* Align left and right */
+  align-items: center; /* Ensures vertical centering */
+  justify-content: space-between;
   padding: 0 20px;
   z-index: 100;
-  box-sizing: border-box; /* Include padding in the width calculation */
+  box-sizing: border-box;
 }
+
+.top-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  margin-left: 15px; /* Space between links */
+  display: flex;
+  align-items: center; /* Vertically center the link content */
+}
+
 
   .top-bar img {
     height: 40px;
@@ -108,12 +118,7 @@ body {
     color: white;
   }
 
-    .top-bar a {
-  color: white;
-  text-decoration: none;
-  font-size: 24px;
-  margin-left: 15px; /* Add some space between links */
-}
+  
 
 .top-bar .credits-link {
   font-size: 24px;
