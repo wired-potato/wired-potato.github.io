@@ -80,7 +80,7 @@ body {
       z-index: -1; /* Place behind all content */
     }
       
- .top-bar {
+.top-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -89,63 +89,61 @@ body {
   backdrop-filter: blur(10px);
   background: rgba(34, 34, 34, 0.5);
   display: flex;
-  align-items: center; /* Ensures vertical centering for everything inside */
-  justify-content: space-between; /* Space out left and right items */
+  align-items: center;
+  justify-content: space-between; /* Separate left and right sections */
   padding: 0 20px;
   z-index: 100;
   box-sizing: border-box;
 }
 
-.top-bar img {
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.left-section img {
   height: 40px;
   margin-right: 10px;
 }
 
-.top-bar span {
+.left-section a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 24px;
-  color: white;
 }
 
-.top-bar a {
-  color: white;
-  text-decoration: none;
-  font-size: 24px;
-  margin-left: 15px; /* Space between links */
+.right-section {
   display: flex;
-  align-items: center; /* Vertically center the link content */
+  gap: 15px; /* Space between links */
 }
 
-.top-bar .span-link {
+.right-section a {
   color: white;
   text-decoration: none;
-  font-size: 24px;
-}
-
-
-  
-
-.top-bar .credits-link {
-  font-size: 24px;
+  font-size: 16px;
   text-decoration: underline;
 }
 
-      .top-bar .fix-errors {
-        font-size: 24px;
-        text-decoration: none;
-      }
+.right-section a:hover {
+  opacity: 0.8;
+}
+
     </style>
   </head>
   <body>
     
- <div class="top-bar">
-  <div>
+<div class="top-bar">
+  <div class="left-section">
     <img src="potato.png" alt="Potato Icon">
     <a href="#" class="span-link"><span>Wired Potato</span></a>
   </div>
-  <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors &nbsp;&nbsp;&nbsp;</a>
-  <a href="thanks.md" target="_blank" class="credits-link">Credits</a>
+  <div class="right-section">
+    <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors</a>
+    <a href="thanks.md" target="_blank" class="credits-link">Credits</a>
+  </div>
 </div>
+
 
     
     
