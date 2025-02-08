@@ -147,17 +147,31 @@ body {
   height: auto;
 }
 
-      #searchBar {
-  padding: 10px;
+     #searchBar {
+  padding: 12px 20px;
   font-size: 18px;
-  border: none;
-  border-radius: 5px;
+  border: 2px solid #8B4513; /* Add a border with a color that fits your theme */
+  border-radius: 25px; /* Rounded corners */
   outline: none;
   width: 250px;
   text-align: center;
   display: block;
-  margin: 10px auto; /* Centers the input */
+  margin: 15px auto;
+  background-color: #333; /* Dark background to match the theme */
+  color: white; /* Text color */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
+
+#searchBar:focus {
+  border-color: #ffcc00; /* Highlight border color on focus */
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); /* Glow effect on focus */
+}
+
+#searchBar::placeholder {
+  color: #ccc; /* Lighter placeholder text */
+  font-style: italic;
+}
+
 
 
     </style>
