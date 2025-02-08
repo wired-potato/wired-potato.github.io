@@ -242,13 +242,16 @@ body {
 
   buttons.forEach((span) => {
     let button = span.closest("a"); // Get the <a> tag
+    if (button.style.display === "none") return; // Ignore already hidden buttons
+    
     if (span.textContent.toLowerCase().includes(input)) {
-      button.style.display = "block";
+      button.style.display = "block"; // Show matching buttons
     } else {
-      button.style.display = "none";
+      button.style.display = "none"; // Hide non-matching buttons
     }
   });
 }
+
 
   </script>
   <script>
