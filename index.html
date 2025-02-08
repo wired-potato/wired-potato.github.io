@@ -147,7 +147,18 @@ body {
   height: auto;
 }
 
-      
+      #searchBar {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 250px;
+  text-align: center;
+  display: block;
+  margin: 10px auto; /* Centers the input */
+}
+
 
     </style>
   </head>
@@ -175,6 +186,7 @@ body {
       <div id="particles-js"></div>
     <img src="potato.png" alt="Wired Potato Logo" class="centered-image">
 <h1> WIRED POTATO GAMES </h1>
+    <input type="text" id="searchBar" placeholder="Search games..." onkeyup="filterGames()">
    <div class="potato-grid">
   <a href="g/sandboxcity.html">
     <button class="potato-button">🥔<span>Sandbox City</span></button>
@@ -223,6 +235,22 @@ body {
   
       
 </body>
+  <script>
+    function filterGames() {
+  let input = document.getElementById("searchBar").value.toLowerCase();
+  let buttons = document.querySelectorAll(".potato-button span");
+
+  buttons.forEach((span) => {
+    let button = span.closest("a"); // Get the <a> tag
+    if (span.textContent.toLowerCase().includes(input)) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  });
+}
+
+  </script>
   <script>
 particlesJS('particles-js', {
       particles: {
