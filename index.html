@@ -236,26 +236,27 @@ body {
       
 </body>
   <script>
-  function filterGames() {
+function filterGames() {
   let input = document.getElementById("searchBar").value.toLowerCase();
   let buttons = document.querySelectorAll(".potato-button span");
 
   buttons.forEach((span) => {
-    let button = span.closest("a"); // Get the <a> tag
+    let button = span.closest("button"); // Get the <button> tag
 
     // Store the original display state if not already set
     if (!button.hasAttribute("data-original-display")) {
-      button.setAttribute("data-original-display", button.style.display || "block");
+      button.setAttribute("data-original-display", button.style.display || "inline-block");
     }
 
-    // Filter logic
+    // Show the button if the text matches the search input
     if (span.textContent.toLowerCase().includes(input)) {
       button.style.display = button.getAttribute("data-original-display"); // Restore original display
     } else {
-      button.style.display = "none"; // Hide non-matching buttons
+      button.style.display = "none"; // Hide the button if no match
     }
   });
 }
+
 
 
 
