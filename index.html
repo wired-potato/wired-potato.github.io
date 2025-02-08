@@ -236,16 +236,21 @@ body {
       
 </body>
   <script>
-    function filterGames() {
+  function filterGames() {
   let input = document.getElementById("searchBar").value.toLowerCase();
   let buttons = document.querySelectorAll(".potato-button span");
 
   buttons.forEach((span) => {
     let button = span.closest("a"); // Get the <a> tag
-    if (button.style.display === "none") return; // Ignore already hidden buttons
-    
+
+    // Store the original display state if not already set
+    if (!button.hasAttribute("data-original-display")) {
+      button.setAttribute("data-original-display", button.style.display || "block");
+    }
+
+    // Filter logic
     if (span.textContent.toLowerCase().includes(input)) {
-      button.style.display = "block"; // Show matching buttons
+      button.style.display = button.getAttribute("data-original-display"); // Restore original display
     } else {
       button.style.display = "none"; // Hide non-matching buttons
     }
@@ -253,7 +258,10 @@ body {
 }
 
 
+
   </script>
+
+  
   <script>
 particlesJS('particles-js', {
       particles: {
