@@ -140,11 +140,7 @@ body {
     max-width: 900px;
     margin: auto;
   }
-      .potato-grid a {
-  text-decoration: none; /* Remove underline */
-  pointer-events: none;  /* Disable clicking */
-  color: inherit; /* Keep text normal */
-}
+    
 
 
       .centered-image {
@@ -357,16 +353,21 @@ function filterGames() {
 
   links.forEach((link) => {
     let span = link.querySelector("span");
+    let button = link.querySelector("button");
 
     if (span.textContent.toLowerCase().includes(input)) {
-      // Show the content but remove the <a> tag
-      let parent = link.parentNode;
-      if (parent) {
-        parent.replaceChild(link.children[0], link); // Replace <a> with its child (button + span)
+      link.style.display = "inline-block"; // Show matching items
+
+      // Move link to the button if not already done
+      if (!button.onclick) {
+        button.onclick = () => window.location.href = link.href;
       }
+    } else {
+      link.style.display = "none"; // Hide non-matching items
     }
   });
 }
+
 
   </script>
 
