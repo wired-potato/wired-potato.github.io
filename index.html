@@ -179,6 +179,32 @@ body {
 .potato-grid a {
   color: transparent;  /* Makes the link text invisible */
 }
+      .cloakbutton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  background: #333;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+  inset -5px -5px 10px #222;
+  font-family: "Bebas Neue", serif;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  color: rgb(161, 161, 161);
+  transition: 500ms;
+}
+
+.cloakbutton:hover {
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+    inset -5px -5px 10px #444;
+  color: #d6d6d6;
+  transition: 500ms;
+}
     </style>
   </head>
   <body>
@@ -207,6 +233,8 @@ body {
     
     
       <div id="particles-js"></div>
+      <button class="cloakbutton" onclick="openCloaker()">Open Cloaker (you must allow pop-ups and redirects)</button>
+
     <img src="potato.png" alt="Wired Potato Logo" class="centered-image">
 <h1> WIRED POTATO GAMES </h1>
     <input type="text" id="searchBar" placeholder="Search games..." onkeyup="filterGames()">
@@ -410,6 +438,28 @@ particlesJS('particles-js', {
       retina_detect: true,
     });
 </script>
+  <script>
+    function openCloaker() {
+  // Open Kahoot in the current window
+  window.location.replace("https://nasa.gov");
+
+  // Open a new window with about:blank
+  var win = window.open('about:blank', '_blank');
+  
+  // Set up the iframe for cloaked content
+  var url = "https://wired-potato.vercel.app";
+  var iframe = win.document.createElement('iframe');
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.src = url;
+
+  // Style the body of the new window to fit the iframe
+  win.document.body.style.margin = "0";
+  win.document.body.style.height = "100vh";
+  win.document.body.appendChild(iframe);
+}
+  </script>
  
 </html>
  
