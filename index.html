@@ -50,6 +50,32 @@ https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
     .potato-button:active {
       transform: scale(0.9);
     }
+      .random-button {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  background: #333;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
+  inset -5px -5px 10px #222;
+  font-family: "Bebas Neue", serif;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  color: rgb(161, 161, 161);
+  transition: 500ms;
+}
+
+.random-button:hover {
+  box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
+    inset -5px -5px 10px #444;
+  color: #d6d6d6;
+  transition: 500ms;
+}
 body {
   font-family: "Bebas Neue", serif;
   background-color: #222222; /* Dark gray background */
@@ -221,6 +247,7 @@ body {
     <a href="g/retrobowl.html">Retro Bowl &nbsp;&nbsp;&nbsp;</a>
     <a href="g/fnaf.html">FNAF 1 &nbsp;&nbsp;&nbsp;</a>
     <a href="g/bitlife.html">Bitlife &nbsp;&nbsp;&nbsp;</a>
+    <button class="random-button" onclick="openRandomGame()">Random Game</button>
     <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors &nbsp;&nbsp;&nbsp;</a>
     <a href="feedback.html" target="_blank" class="credits-link">Feedback &nbsp;&nbsp;&nbsp;</a>
     <a href="thanks.md" target="_blank" class="credits-link">Credits</a>
@@ -456,7 +483,15 @@ function filterGames() {
 
 
   </script> 
-  
+    <script>
+
+
+    </script>
+  function openRandomGame() {
+  const games = Array.from(document.querySelectorAll('.potato-grid a'));
+  const randomGame = games[Math.floor(Math.random() * games.length)];
+  window.location.href = randomGame.href;
+}
       
 </body>
 
