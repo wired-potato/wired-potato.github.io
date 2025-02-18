@@ -465,28 +465,29 @@ function filterGames() {
   let buttons = document.querySelectorAll(".potato-button");
 
   buttons.forEach((button) => {
-    let link = button.querySelector("a"); // Get the <a> inside the button
+    let span = button.querySelector("span"); // Get the <span> inside the button
 
-    // Store the original display state of the <a> if not already set
-    if (!link.hasAttribute("data-original-display")) {
-      link.setAttribute("data-original-display", link.style.display || "inline-block");
+    // Store the original display state of the <span> if not already set
+    if (!span.hasAttribute("data-original-display")) {
+      span.setAttribute("data-original-display", span.style.display || "inline-block");
     }
 
-    // If the text inside the <a> matches the search, show the <a>
-    if (link.textContent.toLowerCase().includes(input)) {
-      link.style.display = link.getAttribute("data-original-display"); // Restore original display
+    // If the text inside the <span> matches the search, show the <span>
+    if (span.textContent.toLowerCase().includes(input)) {
+      span.style.display = span.getAttribute("data-original-display"); // Restore original display
     } else {
-      link.style.display = "none"; // Hide the <a> if it doesn't match the search
+      span.style.display = "none"; // Hide the <span> if it doesn't match the search
     }
 
-    // If the <a> is hidden, hide the entire button, otherwise keep the button visible
-    if (link.style.display === "none") {
+    // If the <span> is hidden, hide the entire button, otherwise keep the button visible
+    if (span.style.display === "none") {
       button.style.visibility = "hidden"; // Hide the button, but preserve its space
     } else {
       button.style.visibility = "visible"; // Make the button visible again
     }
   });
 }
+
 
 
 
