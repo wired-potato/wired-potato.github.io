@@ -462,13 +462,23 @@ body {
    <script>
 function filterGames() {
   let input = document.getElementById("searchBar").value.toLowerCase();
+  let buttons = document.querySelectorAll(".potato-button");
   let links = document.querySelectorAll(".potato-grid a");
 
+  buttons.forEach((button) => {
+    let span = button.querySelector("span"); // Get the <span> inside the button
   links.forEach((link) => {
     let span = link.querySelector("span");
     let button = link.querySelector("button");
 
+    // Store the original display state of the <span> if not already set
+    if (!span.hasAttribute("data-original-display")) {
+      span.setAttribute("data-original-display", span.style.display || "block");
+    }
+
+    // If the text inside the span matches the search, show the span
     if (span.textContent.toLowerCase().includes(input)) {
+      span.style.display = span.getAttribute("data-original-display"); // Restore original display
       link.style.display = "inline-block"; // Show matching items
 
       // Move link to the button if not already done
@@ -476,13 +486,17 @@ function filterGames() {
         button.onclick = () => window.location.href = link.href;
       }
     } else {
+      span.style.display = "none"; // Hide the <span> if it doesn't match the search
       link.style.display = "none"; // Hide non-matching items
     }
   });
 }
 
 
-  </script> 
+
+
+
+  </script>
     <script>
 function openRandomGame() {
   const games = [
