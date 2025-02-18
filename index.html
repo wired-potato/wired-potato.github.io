@@ -266,12 +266,10 @@ body {
 <h1> WIRED POTATO GAMES </h1>
     <input type="text" id="searchBar" placeholder="Search games..." oninput="filterGames()">
    <div class="potato-grid">
-      
+      <a href="g/aio.html">
           <a href="g/advcap.html">
     <button class="potato-button">🥔<span>Adventure Capitalist</span></button>
   </a>
-     
-         <a href="g/aio.html">
     <button class="potato-button">🥔<span>Arras.io</span></button>
   </a>
            <a href="g/baldisbasics.html">
@@ -364,6 +362,8 @@ body {
       <a href="g/motox3m.html">
     <button class="potato-button">🥔<span>Moto X3M</span></button>
   </a>
+     <a href="g/neal.html">
+    <button class="potato-button">🥔<span>Neal.fun</span></button>
         <a href="g/ovo.html">
     <button class="potato-button">🥔<span>OvO</span></button>
   </a>
@@ -465,30 +465,35 @@ body {
 function filterGames() {
   let input = document.getElementById("searchBar").value.toLowerCase();
   let buttons = document.querySelectorAll(".potato-button");
+  let links = document.querySelectorAll(".potato-grid a");
 
   buttons.forEach((button) => {
     let span = button.querySelector("span"); // Get the <span> inside the button
+  links.forEach((link) => {
+    let span = link.querySelector("span");
+    let button = link.querySelector("button");
 
     // Store the original display state of the <span> if not already set
     if (!span.hasAttribute("data-original-display")) {
-      span.setAttribute("data-original-display", span.style.display || "inline-block");
+      span.setAttribute("data-original-display", span.style.display || "block");
     }
 
-    // If the text inside the <span> matches the search, show the <span>
+    // If the text inside the span matches the search, show the span
     if (span.textContent.toLowerCase().includes(input)) {
       span.style.display = span.getAttribute("data-original-display"); // Restore original display
+      link.style.display = "inline-block"; // Show matching items
+
+      // Move link to the button if not already done
+      if (!button.onclick) {
+        button.onclick = () => window.location.href = link.href;
+      }
     } else {
       span.style.display = "none"; // Hide the <span> if it doesn't match the search
-    }
-
-    // If the <span> is hidden, hide the entire button, otherwise keep the button visible
-    if (span.style.display === "none") {
-      button.style.visibility = "hidden"; // Hide the button, but preserve its space
-    } else {
-      button.style.visibility = "visible"; // Make the button visible again
+      link.style.display = "none"; // Hide non-matching items
     }
   });
 }
+
 
 
 
@@ -529,6 +534,7 @@ function openRandomGame() {
     "g/ec2.html",
     "g/ec.html",
     "g/motox3m.html",
+    "g/neal.html",
     "g/ovo.html",
     "g/ovod.html",
     "g/pixelshooter.html",
