@@ -475,11 +475,14 @@ function filterGames() {
     // If the text inside the span matches the search, show the span
     if (span.textContent.toLowerCase().includes(input)) {
       span.style.display = span.getAttribute("data-original-display"); // Restore original display
+      button.style.display = "inline-block"; // Show the button
     } else {
       span.style.display = "none"; // Hide the <span> if it doesn't match the search
+      button.style.display = "none"; // Hide the button if it doesn't match the search
     }
   });
 }
+
 
 
   </script>
