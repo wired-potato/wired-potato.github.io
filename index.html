@@ -470,21 +470,21 @@ body {
 
    <script>
 function filterGames() {
-  let input = document.getElementById("searchBar").value.toLowerCase();
-  let buttons = document.querySelectorAll(".potato-button");
+  const input = document.getElementById("searchBar").value.toLowerCase();
+  const links = document.querySelectorAll(".potato-grid a");
 
-  buttons.forEach((button) => {
-    let span = button.querySelector("span"); // Get the <span> inside the button
-
+  links.forEach(link => {
+    const span = link.querySelector("span");
     if (span && span.textContent.toLowerCase().includes(input)) {
-      button.style.display = "inline-block"; // Show matching buttons
-      span.style.display = "inline"; // Ensure the span is visible if the button is shown
+      // Show the entire link (button + span)
+      link.style.display = "inline-block";
     } else {
-      button.style.display = "none"; // Hide non-matching buttons
-      span.style.display = "none"; // Hide the span when the button is hidden
+      // Hide the entire link
+      link.style.display = "none";
     }
   });
 }
+
 
 
   </script>
