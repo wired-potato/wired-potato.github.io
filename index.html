@@ -478,11 +478,14 @@ function filterGames() {
 
     if (span && span.textContent.toLowerCase().includes(input)) {
       button.style.display = "inline-block"; // Show matching buttons
+      span.style.display = "inline"; // Ensure the span is visible if the button is shown
     } else {
       button.style.display = "none"; // Hide non-matching buttons
+      span.style.display = "none"; // Hide the span when the button is hidden
     }
   });
 }
+
 
   </script>
     <script>
