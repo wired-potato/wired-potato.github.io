@@ -247,7 +247,6 @@ body {
     <a href="g/retrobowl.html">Retro Bowl &nbsp;&nbsp;&nbsp;</a>
     <a href="g/fnaf.html">FNAF 1 &nbsp;&nbsp;&nbsp;</a>
     <a href="g/bitlife.html">Bitlife &nbsp;&nbsp;&nbsp;</a>
-    <button class="random-button" onclick="openRandomGame()">Random Game</button>
     <a href="NOTE.md" target="_blank" class="fix-errors">How to fix errors &nbsp;&nbsp;&nbsp;</a>
     <a href="feedback.html" target="_blank" class="credits-link">Feedback &nbsp;&nbsp;&nbsp;</a>
     <a href="thanks.md" target="_blank" class="credits-link">Credits</a>
@@ -544,99 +543,7 @@ function filterGames() {
 
 
   </script>
-    <script>
-function openRandomGame() {
-  const games = [
-    "g/aio.html",
-    "g/advcap.html",
-    "g/baldisbasics.html",
-    "g/basketrandom.html",
-    "g/blockblast.html",
-    "g/bitlife.html",
-    "g/cartheif.html",
-    "g/carsim.html",
-    "g/cookieclicker.html",
-    "g/crossyroad.html",
-    "g/doom.html",
-    "g/driftboss.html",
-    "g/drivemad.html",
-    "g/ducklife.html",
-    "g/dunkbrush.html",
-    "g/flyingcarsim.html",
-    "g/fnaf.html",
-    "g/fnaf2.html",
-    "g/fnaf3.html",
-    "g/fnaf4.html",
-    "g/fnaf5.html",
-    "g/funny-shooter-2.html",
-    "g/getoverit.html",
-    "g/granny.html",
-    "g/gunspin.html",
-    "g/helixjump.html",
-    "g/idle-breakout.html",
-    "g/idledice.html",
-    "g/jumphobia.html",
-    "g/microwars.html",
-    "g/ec2.html",
-    "g/ec.html",
-    "g/motox3m.html",
-    "g/ovo.html",
-    "g/ovod.html",
-    "g/pixelshooter.html",
-    "g/polytrack.html",
-    "g/ragdollarchers.html",
-    "g/ragdollhit.html",
-    "g/retrobowl.html",
-    "g/roblox.html",
-    "g/rocketsoccer.html",
-    "g/run3.html",
-    "g/sandboxcity.html",
-    "g/skyriders.html",
-    "g/slope.html",
-    "g/spacewaves.html",
-    "g/stickmandestruction.html",
-    "g/stickmanhook.html",
-    "g/subwaysurfers.html",
-    "g/subwaynyc.html",
-    "g/subwaysurferswh.html",
-    "g/supercold.html",
-    "g/supermario64.html",
-    "g/templerun.html",
-    "g/thumbfighter.html",
-    "g/timeshooter.html",
-    "g/timeshooter2.html",
-    "g/timeshooter3.html",
-    "g/twinshot.html",
-    "g/wrassling.html",
-    "g/zeepkist.html",
-    "g/3dcarsim.html",
-    "g/10minstilldawn.html",
-     "g/tinyfishing.html",
-    "g/schoolbus.html",
-    "g/madalincars3.html",
-    "g/unicycle-hero.html",
-    "g/ducklife2.html",
-    "g/ducklife3.html",
-    "g/ducklife4.html",
-    "g/idle-ants.html",
-    "g/3ddinorun.html",
-    "g/duckhunt.html",
-      "g/clusterrush.html",
-    "g/monkeymart.html",
-      "g/sukia.html",
-        "g/fruitninja.html",
-        "g/leveldevil.html"
-    
-    
-    
-     
-  ];
-  const randomIndex = Math.floor(Math.random() * games.length);
-  window.location.href = games[randomIndex];
-}
 
-    </script>
- 
 </body>
 
 
@@ -680,7 +587,7 @@ particlesJS('particles-js', {
   var win = window.open('about:blank', '_blank');
   
   // Set up the iframe for cloaked content
-  var url = "https://wired-potato.vercel.app";
+  var url = window.location.hostname ;
   var iframe = win.document.createElement('iframe');
   iframe.style.width = "100%";
   iframe.style.height = "100%";
