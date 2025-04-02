@@ -10,6 +10,7 @@
     <script src="
 https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
 "></script>
+    <script>acount.js</script>
 
     <style>
 * {
@@ -230,7 +231,23 @@ body {
      
   </div>
 </div>
+    
+  <div id="auth-section">
+      <h2>Register</h2>
+      <input type="text" id="register-username" placeholder="Username">
+      <input type="password" id="register-password" placeholder="Password">
+      <button onclick="register()">Register</button>
 
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username">
+      <input type="password" id="login-password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="logout-section" style="display: none;">
+      <h2 id="welcome-message"></h2>
+      <button onclick="logout()">Logout</button>
+    </div>
 
 
     
