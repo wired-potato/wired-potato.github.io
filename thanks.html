@@ -94,8 +94,9 @@
                     const rect = credit.getBoundingClientRect();
                     if (bullet.x < rect.right && bullet.x + bulletWidth > rect.left &&
                         bullet.y < rect.bottom && bullet.y + bulletHeight > rect.top) {
-                        credit.style.visibility = 'hidden';
+                        credit.remove();
                         bullets.splice(index, 1);
+                        creditsElements = document.querySelectorAll('.credits p'); // Update the credits elements list
                     }
                 });
             });
