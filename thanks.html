@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Credits</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+        }
+        .credits {
+            position: absolute;
+            bottom: -100%;
+            width: 100%;
+            text-align: center;
+            animation: scrollCredits 20s linear infinite;
+        }
+        @keyframes scrollCredits {
+            from {
+                bottom: -100%;
+            }
+            to {
+                bottom: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="credits">
+        <h1>Credits</h1>
+        <p>Director: John Doe</p>
+        <p>Producer: Jane Smith</p>
+        <p>Lead Developer: Alice Johnson</p>
+        <p>Designer: Bob Brown</p>
+        <!-- Add more credits as needed -->
+    </div>
+</body>
+</html>
