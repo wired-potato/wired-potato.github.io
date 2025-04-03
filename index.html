@@ -230,6 +230,18 @@ body {
   color: #d6d6d6;
   transition: 500ms;
 }
+
+       #quote {
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
     </style>
   </head>
   <body>
@@ -267,6 +279,8 @@ body {
     
       <div id="particles-js"></div>
       <button class="cloakbutton" onclick="openCloaker()">Open Cloaker (you must allow pop-ups and redirects)</button>
+    <div id="quote"></div>
+    
 
     <img src="potato.png" alt="Wired Potato Logo" class="centered-image">
 <h1> WIRED POTATO GAMES </h1>
@@ -637,6 +651,31 @@ particlesJS('particles-js', {
   win.document.body.style.height = "100vh";
   win.document.body.appendChild(iframe);
 }
+  </script>
+
+  <script>
+    const quotes = [
+      "DO NOT PLAY GAMES IN CLASS THATS RUDE TO YOUR TEACHERS",
+      "using the cloaker is highly recomended",
+      "a 😎 means the game is recommended",
+      "This site is open source on github",
+      "if you want a game added, use the feedback form in the top left"
+      
+    ];
+
+    const quoteElement = document.getElementById('quote');
+    
+    function showQuote() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteElement.style.opacity = 0; // Start fade out
+      setTimeout(() => {
+        quoteElement.innerText = randomQuote;
+        quoteElement.style.opacity = 1; // Fade in new quote
+      }, 1500); // Wait for fade out before changing text
+    }
+
+    showQuote(); // Show first quote immediately
+    setInterval(showQuote, 5000); // Change quote every 5 seconds
   </script>
  
 </html>
