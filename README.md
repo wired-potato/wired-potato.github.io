@@ -5,6 +5,4 @@ The official repository for wired-potato.github.io
 best: <br>
 <a href="https://wired-potato.vercel.app" >Vercel</a> <br>
 <a href="https://wired-potato.onrender.com" >Render</a> <br>
-
-bad lol: <br>
-<a href="https://wired-potato.glitch.me" >Glitch</a> <br>
+<a href="https://wiredpotato.glitch.me" >Glitch</a> <br> (theres no dash in this one, will be updated later, so its behind)
