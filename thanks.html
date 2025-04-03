@@ -40,6 +40,13 @@
             width: 100%;
             height: 100%;
         }
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +59,7 @@
         <!-- Add more credits as needed -->
     </div>
     <canvas id="gameCanvas"></canvas>
+    <div id="score">Score: 0</div>
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
@@ -76,6 +84,7 @@
         const bulletSpeed = 5;
 
         let creditsElements = document.querySelectorAll('.credits p');
+        let score = 0;
 
         function drawSpaceship() {
             ctx.drawImage(spaceship, spaceshipX, spaceshipY, spaceshipWidth, spaceshipHeight);
@@ -97,6 +106,8 @@
                         credit.remove();
                         bullets.splice(index, 1);
                         creditsElements = document.querySelectorAll('.credits p'); // Update the credits elements list
+                        score += 10;
+                        document.getElementById('score').innerText = `Score: ${score}`;
                     }
                 });
             });
