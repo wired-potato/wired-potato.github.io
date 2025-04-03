@@ -16,6 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-family: Arial, sans-serif;
         }
         .credits {
             position: absolute;
@@ -67,12 +68,14 @@
         const spaceshipWidth = 50;
         const spaceshipHeight = 50;
         let spaceshipX = (canvas.width - spaceshipWidth) / 2;
-        const spaceshipY = canvas.height - spaceshipHeight - 10;
+        let spaceshipY = canvas.height - spaceshipHeight - 10;
 
         const bullets = [];
         const bulletWidth = 5;
         const bulletHeight = 10;
         const bulletSpeed = 5;
+
+        let creditsElements = document.querySelectorAll('.credits p');
 
         function drawSpaceship() {
             ctx.drawImage(spaceship, spaceshipX, spaceshipY, spaceshipWidth, spaceshipHeight);
@@ -85,6 +88,16 @@
                     bullets.splice(index, 1);
                 }
                 ctx.drawImage(bulletImg, bullet.x, bullet.y, bulletWidth, bulletHeight);
+
+                // Collision detection with credits
+                creditsElements.forEach((credit, idx) => {
+                    const rect = credit.getBoundingClientRect();
+                    if (bullet.x < rect.right && bullet.x + bulletWidth > rect.left &&
+                        bullet.y < rect.bottom && bullet.y + bulletHeight > rect.top) {
+                        credit.style.visibility = 'hidden';
+                        bullets.splice(index, 1);
+                    }
+                });
             });
         }
 
@@ -92,24 +105,45 @@
             bullets.push({ x: spaceshipX + spaceshipWidth / 2 - bulletWidth / 2, y: spaceshipY });
         }
 
+        const keys = {
+            w: false,
+            a: false,
+            s: false,
+            d: false
+        };
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === ' ') {
+                shoot();
+            } else {
+                keys[e.key] = true;
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+
         function update() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (keys.w && spaceshipY > 0) {
+                spaceshipY -= 5;
+            }
+            if (keys.s && spaceshipY < canvas.height - spaceshipHeight) {
+                spaceshipY += 5;
+            }
+            if (keys.a && spaceshipX > 0) {
+                spaceshipX -= 5;
+            }
+            if (keys.d && spaceshipX < canvas.width - spaceshipWidth) {
+                spaceshipX += 5;
+            }
+
             drawSpaceship();
             drawBullets();
             requestAnimationFrame(update);
         }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && spaceshipX > 0) {
-                spaceshipX -= 10;
-            }
-            if (e.key === 'ArrowRight' && spaceshipX < canvas.width - spaceshipWidth) {
-                spaceshipX += 10;
-            }
-            if (e.key === ' ') {
-                shoot();
-            }
-        });
 
         spaceship.onload = () => {
             update();
