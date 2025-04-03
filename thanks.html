@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Credits</title>
+    <title>Scrolling Credits with Shooting</title>
     <style>
         body, html {
             margin: 0;
@@ -11,11 +11,11 @@
             overflow: hidden;
             height: 100%;
             width: 100%;
+            background-color: black;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: black;
-            color: white;
         }
         .credits {
             position: absolute;
@@ -32,6 +32,13 @@
                 bottom: 100%;
             }
         }
+        #gameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -43,5 +50,70 @@
         <p>Designer: Bob Brown</p>
         <!-- Add more credits as needed -->
     </div>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const spaceship = new Image();
+        spaceship.src = 'Images/Spaceship.png';
+
+        const bulletImg = new Image();
+        bulletImg.src = 'Images/Bullet.png';
+
+        const spaceshipWidth = 50;
+        const spaceshipHeight = 50;
+        let spaceshipX = (canvas.width - spaceshipWidth) / 2;
+        const spaceshipY = canvas.height - spaceshipHeight - 10;
+
+        const bullets = [];
+        const bulletWidth = 5;
+        const bulletHeight = 10;
+        const bulletSpeed = 5;
+
+        function drawSpaceship() {
+            ctx.drawImage(spaceship, spaceshipX, spaceshipY, spaceshipWidth, spaceshipHeight);
+        }
+
+        function drawBullets() {
+            bullets.forEach((bullet, index) => {
+                bullet.y -= bulletSpeed;
+                if (bullet.y + bulletHeight < 0) {
+                    bullets.splice(index, 1);
+                }
+                ctx.drawImage(bulletImg, bullet.x, bullet.y, bulletWidth, bulletHeight);
+            });
+        }
+
+        function shoot() {
+            bullets.push({ x: spaceshipX + spaceshipWidth / 2 - bulletWidth / 2, y: spaceshipY });
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawSpaceship();
+            drawBullets();
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && spaceshipX > 0) {
+                spaceshipX -= 10;
+            }
+            if (e.key === 'ArrowRight' && spaceshipX < canvas.width - spaceshipWidth) {
+                spaceshipX += 10;
+            }
+            if (e.key === ' ') {
+                shoot();
+            }
+        });
+
+        spaceship.onload = () => {
+            update();
+        };
+    </script>
 </body>
 </html>
